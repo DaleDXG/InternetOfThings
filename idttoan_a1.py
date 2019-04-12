@@ -25,7 +25,7 @@ while True:
         p = sense.get_pressure()
         
         client.publish(topic, json.dumps({'t_h':t_h,'t_p':t_p,'h':h,'p':p}))
-        print('' + str(t_h) + '\n' + str(t_p )+ '\n' + str(h) + '\n' + str(p) + '\n')
+        #print('' + str(t_h) + '\n' + str(t_p )+ '\n' + str(h) + '\n' + str(p) + '\n')
         time.sleep(.5)
     except IOError:
         print("IOError")
