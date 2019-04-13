@@ -30,6 +30,6 @@ client = ibmiotf.application.Client(options)
 
 client.connect()
 #client.deviceEventCallback = ButtonCallback()
-client.deviceEventCallback = DataCallback()
+client.deviceEventCallback = DataCallback
 
 client.subscribeToDeviceEvents(deviceType=sourceDeviceType, deviceId=sourceDeviceId, event=sourceEvent)
