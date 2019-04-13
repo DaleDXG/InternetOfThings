@@ -4,19 +4,19 @@ import json
 
 options = {
     "org": "s0wlob",
-    "id": "",
+    "id": "assignment1",
     "auth-method": "apikey",
     "auth-key": "a-s0wlob-mv8vlr5oei",
     "auth-token": "z78d0999HjMoyTc-n3",
     "clean-session": True
     }
 
-sourceDeviceType = ""
-sourceDeviceId = ""
-sourceEvent = ""
+sourceDeviceType = "Sensors"
+sourceDeviceId = "SenseHAT"
+sourceEvent = "temperature"
 
-targetDeviceType = ""
-targetDeviceId = ""
+targetDeviceType = "Display"
+targetDeviceId = "LED"
 
 def ButtonCallback(event):
     print("Got event " + json.dumps(event.data))
@@ -28,6 +28,8 @@ def ButtonCallback(event):
 client = ibmiotf.application.Client(options)
 
 client.connect()
-client.deviceEventCallback = ButtonCallback()
+#client.deviceEventCallback = ButtonCallback()
+
+
 
 client.subscribeToDeviceEvents(deviceType=sourceDeviceType, deviceId=sourceDeviceId, event=sourceEvent)
