@@ -19,18 +19,17 @@ sourceEvent = "temperature"
 targetDeviceType = "Display"
 targetDeviceId = "LED"
 
-def ButtonCallback(event):
+def DataCallback(event):
     print("Got event " + json.dumps(event.data))
     temperature = event.data['temperature']
     commandData = {'temperature': temperature}
-    client.publishCommand(targetDeviceType, targetDeviceId, "state", "json", commandData)
+    client.publishCommand(targetDeviceType, targetDeviceId, "temperature", "json", commandData)
 
 
 client = ibmiotf.application.Client(options)
 
 client.connect()
 #client.deviceEventCallback = ButtonCallback()
-
-
+client.deviceEventCallback = DataCallback()
 
 client.subscribeToDeviceEvents(deviceType=sourceDeviceType, deviceId=sourceDeviceId, event=sourceEvent)
