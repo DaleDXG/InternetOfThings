@@ -8,7 +8,8 @@ host = 's0wlob.messaging.internetofthings.ibmcloud.com'
 clientid = 'd:s0wlob:Display:LED'
 username = 'use-token-auth'
 password = 'MA+BJELzPCj2N(rQI4'
-topic = 'iot-2/type/Sensors/id/SenseHAT/getTemperature/fmt/json'
+#topic = 'iot-2/type/Sensors/id/SenseHAT/getTemperature/fmt/json'
+topic = 'iot-2/cmd/temperature/fmt/json'
 sense = SenseHat()
 
 
