@@ -1,5 +1,3 @@
-import sys
-import time
 import json
 import paho.mqtt.client as mqtt
 from sense_hat import SenseHat
@@ -9,22 +7,18 @@ host = 's0wlob.messaging.internetofthings.ibmcloud.com'
 clientid = 'd:s0wlob:Sensors:SenseHAT'
 username = 'use-token-auth'
 password = '9q@)ZLnq@Fc?348(Lk'
-topic = 'iot-2/cmd/temperature/fmt/json'
+topic = 'iot-2/type/Sensors/id/SenseHAT/temperature/fmt/json'
+sense = SenseHat()
 
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
+    
 
 def on_message(client, userdata, msg):
     temperature = json.loads(msg.payload)["temperature"]
-    #if button == "on":
-    #    grovepi.digitalWrite(led,1)
-    #else:
-    #    grovepi.digitalQrite(led,0)
     print(temperature)
-    sense = SenseHat()
-    sense.show_message(temperature,text_colour = [255,0,0])
-
+    sense.show_message(str(temperature))
 
 
 client = mqtt.Client(clientid)
