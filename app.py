@@ -1,6 +1,7 @@
 import ibmiotf.application
 import time
 import json
+from sense_hat import SenseHat
 
 options = {
     "org": "s0wlob",
@@ -20,8 +21,8 @@ targetDeviceId = "LED"
 
 def ButtonCallback(event):
     print("Got event " + json.dumps(event.data))
-    button = event.data['Button']
-    commandData = {'state': button}
+    temperature = event.data['temperature']
+    commandData = {'temperature': temperature}
     client.publishCommand(targetDeviceType, targetDeviceId, "state", "json", commandData)
 
 
