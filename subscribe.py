@@ -30,5 +30,4 @@ client.connect(host, 8883, 60)
 client.subscribe(topic)
 client.on_connect = on_connect
 client.on_message = on_message
-#client.loop_forever
-client.loop()
+client.loop_forever
