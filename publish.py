@@ -13,7 +13,8 @@ topic = 'iot-2/evt/'
 
 client = mqtt.Client(clientid)
 client.username_pw_set(username, password)
-client.connect(host, 1883, 60)
+client.tls_set()
+client.connect(host, 8883, 60)
 
 sense = SenseHat()
 
@@ -39,21 +40,22 @@ while True:
         print('Pressure: ' + str(p) + '\n')
 
         # get compass data
+        compass_north = sense.get_compass()
         compass_data = sense.get_compass_raw()
         m_x = compass_data['x']
         m_y = compass_data['y']
         m_z = compass_data['z']
         top_com = topic + 'compass/fmt/json'
-        client.publish(top_com, json.dumps({'m_x': m_x, 'm_y': m_y, 'm_z': m_z}))
+        client.publish(top_com, json.dumps({'north':compass_north,'m_x': m_x, 'm_y': m_y, 'm_z': m_z}))
         print('Compass_x: ' + str(m_x) + ' Compass_y: ' + str(m_y) + ' Compass_z: ' + str(m_z) + '\n')
-
-        time.sleep(1)
 
         # joystick
         top_joy = topic + 'joystick/fmt/json'
         for event in sense.stick.get_events():
             client.publish(top_joy, json.dumps({'direction': event.direction, 'action': event.action}))
             print('Joystick_direction: ' + event.direction + ' Joystick_action: ' + event.action)
+
+        time.sleep(1)
 
     except IOError:
         print("IOError")
