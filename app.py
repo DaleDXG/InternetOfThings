@@ -7,8 +7,8 @@ options = {
     "org": "s0wlob",
     "id": "assignment1",
     "auth-method": "apikey",
-    "auth-key": "a-s0wlob-mv8vlr5oei",
-    "auth-token": "z78d0999HjMoyTc-n3",
+    "auth-key": "a-s0wlob-ujrxjcezwv",
+    "auth-token": "O7-Feqo2w_ye0SzhNe",
     "clean-session": True
     }
 
