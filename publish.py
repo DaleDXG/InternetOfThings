@@ -22,8 +22,9 @@ while True:
     try:
         # get temperature data
         temp = sense.get_temperature()
-        t_h = sense.get_temperature_from_humidity()
-        t_p = sense.get_temperature_from_pressure()
+        temp = round(temp, 1)
+        #t_h = sense.get_temperature_from_humidity()
+        #t_p = sense.get_temperature_from_pressure()
         top_tem = topic + 'temperature/fmt/json'
         client.publish(top_tem, json.dumps({'temperature': temp}))
         print('Temperature: ' + str(temp) + '\n')
