@@ -2,6 +2,8 @@ import sys
 import time
 import json
 import paho.mqtt.client as mqtt
+from sense_hat import SenseHat
+
 
 # MQTT parameters
 host = 's0wlob.messaging.internetofthings.ibmcloud.com'
@@ -15,9 +17,12 @@ client.username_pw_set(username, password)
 client.tls_set()
 client.connect(host, 8883, 60)
 
+
+sense = SenseHat()
 while True:
     try:
-        strJson = json.dumps({'temperature': 16, 'humidity': 30})
+        t_h = sense.get_temperature_from_humidity()
+        strJson = json.dumps({'temperature': t_h})
         client.publish(topic, strJson)
         print(strJson)
         time.sleep(2)
