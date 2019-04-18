@@ -5,11 +5,13 @@ from sense_hat import SenseHat
 
 # MQTT parameters
 host = 's0wlob.messaging.internetofthings.ibmcloud.com'
-clientid = 'd:s0wlob:Display:LED'
-username = 'use-token-auth'
-password = 'MA+BJELzPCj2N(rQI4'
-#topic = 'iot-2/type/Sensors/id/SenseHAT/getTemperature/fmt/json'
-topic = 'iot-2/cmd/temperature/fmt/json'
+clientid = 'a:s0wlob:showTemperatureOnLED'
+username = 'a-s0wlob-ujrxjcezwv'
+password = 'O7-Feqo2w_ye0SzhNe'
+#username = 'use-token-auth'
+#password = 'MA+BJELzPCj2N(rQI4'
+topic = 'iot-2/type/Sensors/id/SenseHAT/evt/temperature/fmt/json'
+#topic = 'iot-2/cmd/temperature/fmt/json'
 sense = SenseHat()
 
 
