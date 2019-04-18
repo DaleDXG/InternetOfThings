@@ -21,11 +21,12 @@ sense = SenseHat()
 while True:
     try:
         # get temperature data
+        temp = sense.get_temperature()
         t_h = sense.get_temperature_from_humidity()
         t_p = sense.get_temperature_from_pressure()
         top_tem = topic + 'temperature/fmt/json'
-        client.publish(top_tem, json.dumps({'temperature': t_h}))
-        print('Temperature: ' + str(t_h) + '\n')
+        client.publish(top_tem, json.dumps({'temperature': temp}))
+        print('Temperature: ' + str(temp) + '\n')
 
         # get humidity data
         h = sense.get_humidity()
