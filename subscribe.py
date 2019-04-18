@@ -17,9 +17,11 @@ sense = SenseHat()
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
+    client.subscribe(topic)
 
 
 def on_message(client, userdata, msg):
+    
     temperature = json.loads(msg.payload)["temperature"]
     print(temperature)
     sense.show_message(str(temperature))
@@ -29,7 +31,6 @@ client = mqtt.Client(clientid)
 client.username_pw_set(username, password)
 client.tls_set()
 client.connect(host, 8883, 60)
-client.subscribe(topic)
 client.on_connect = on_connect
 client.on_message = on_message
-client.loop_forever
+client.loop_forever()
