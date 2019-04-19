@@ -20,9 +20,9 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
-    temperature = json.loads(msg.payload)["temperature"]
+    temperature = json.loads(msg.payload)['temperature']
     print(temperature)
-    sense.show_message(str(temperature))
+    #sense.show_message(str(temperature))
 
 
 client = mqtt.Client(clientid)
@@ -32,4 +32,4 @@ client.connect(host, 8883, 60)
 client.subscribe(topic)
 client.on_connect = on_connect
 client.on_message = on_message
-client.loop_forever
+client.loop_forever()
