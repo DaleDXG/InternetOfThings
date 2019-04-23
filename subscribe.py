@@ -120,7 +120,7 @@ def on_message(client, userdata, msg):
 
 client = mqtt.Client(clientid)
 client.username_pw_set(username, password)
-client.tls_set()
+client.tls_set(ca_certs='/home/pi/Code/rootCA.pem', certfile='/home/pi/Code/client.pem', keyfile='/home/pi/Code/client.key')
 client.connect(host, 8883, 60)
 client.on_connect = on_connect
 client.on_message = on_message
