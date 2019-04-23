@@ -23,33 +23,37 @@ while True:
         # get temperature data
         temp = sense.get_temperature()
         temp = round(temp, 1)
-        #t_h = sense.get_temperature_from_humidity()
-        #t_p = sense.get_temperature_from_pressure()
         top_tem = topic + 'temperature/fmt/json'
         client.publish(top_tem, json.dumps({'temperature': temp}))
-        print('Temperature: ' + str(temp) + '\n')
+        print('Temperature: ' + str(temp) + '; ')
 
         # get humidity data
-        h = sense.get_humidity()
+        hum = sense.get_humidity()
+        hum = round(hum, 1)
         top_hum = topic + 'humidity/fmt/json'
-        client.publish(top_hum, json.dumps({'humidity': h}))
-        print('Humidity: ' + str(h) + '\n')
+        client.publish(top_hum, json.dumps({'humidity': hum}))
+        print('Humidity: ' + str(hum) + '; ')
 
         # get pressure data
-        p = sense.get_pressure()
+        pre = sense.get_pressure()
+        pre = round(pre, 1)
         top_pre = topic + 'pressure/fmt/json'
-        client.publish(top_pre, json.dumps({'pressure': p}))
-        print('Pressure: ' + str(p) + '\n')
+        client.publish(top_pre, json.dumps({'pressure': pre}))
+        print('Pressure: ' + str(pre))
 
         # get compass data
         compass_north = sense.get_compass()
+        compass_north = round(compass_north, 1)
         compass_data = sense.get_compass_raw()
         m_x = compass_data['x']
+        m_x = round(m_x, 1)
         m_y = compass_data['y']
+        m_y = round(m_y, 1)
         m_z = compass_data['z']
+        m_z = round(m_z, 1)
         top_com = topic + 'compass/fmt/json'
         client.publish(top_com, json.dumps({'north':compass_north,'m_x': m_x, 'm_y': m_y, 'm_z': m_z}))
-        print('Compass_x: ' + str(m_x) + ' Compass_y: ' + str(m_y) + ' Compass_z: ' + str(m_z) + '\n')
+        print('North: ' + str(compass_north) + ' Compass_x: ' + str(m_x) + ' Compass_y: ' + str(m_y) + ' Compass_z: ' + str(m_z) + '\n')
 
         # joystick
         top_joy = topic + 'joystick/fmt/json'
