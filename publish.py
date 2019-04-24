@@ -2,6 +2,7 @@ import sys
 import time
 import json
 import paho.mqtt.client as mqtt
+import ssl
 from sense_hat import SenseHat
 
 # MQTT parameters
