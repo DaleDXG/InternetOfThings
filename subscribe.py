@@ -2,7 +2,8 @@ import time
 import json
 import paho.mqtt.client as mqtt
 from sense_hat import SenseHat
-import MySQLdb  
+import MySQLdb
+import ssl
 
 # MQTT parameters
 host = 's0wlob.messaging.internetofthings.ibmcloud.com'
