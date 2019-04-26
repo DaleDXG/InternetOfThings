@@ -42,7 +42,7 @@ def on_message(client, userdata, msg):
     if topic_show == 'temperature':      
         temperature = json.loads(msg.payload)["temperature"]
         print(temperature)
-        sense.show_message(‘T: ’ + str(temperature))
+        sense.show_message('T: ' + str(temperature))
         
      
                
