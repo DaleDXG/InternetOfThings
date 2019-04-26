@@ -24,7 +24,7 @@ def on_connect(client, userdata, flags, rc):
 client = mqtt.Client(clientid)
 client.username_pw_set(username, password)
 client.on_connect = on_connect
-client.tls_set(ca_certs='/home/pi/Code/rootCA.pem', certfile='/home/pi/Code/client.pem', keyfile='/home/pi/Code/client.key')
+client.tls_set(ca_certs='/home/pi/Code/rootCA.pem', certfile='/home/pi/Code/client.pem', keyfile='/home/pi/Code/client.key', cert_reqs=ssl.CERT_NONE)
 client.connect(host, 8883, 60)
 
 while True:
