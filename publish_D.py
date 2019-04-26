@@ -10,7 +10,11 @@ host = 's0wlob.messaging.internetofthings.ibmcloud.com'
 clientid = 'd:s0wlob:Sensors:SenseHAT'
 username = 'use-token-auth'
 password = '9q@)ZLnq@Fc?348(Lk'
-topic = 'iot-2/evt/hello/fmt/json'
+topic = 'iot-2/evt//fmt/json'
+
+# The callback for when the client receives a CONNACK response from the server.
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code "+str(rc))
 
 #parser_input = argparse.ArgumentParser()  # the token is used to security check
 #parser_input.add_argument("-p", "--pass", action="store", required=True, dest='token',help="token from ibm cloud")
@@ -19,7 +23,8 @@ topic = 'iot-2/evt/hello/fmt/json'
 
 client = mqtt.Client(clientid)
 client.username_pw_set(username, password)
-client.tls_set(ca_certs='C:/Users/OEM/Desktop/Postgraduate/Internet of Things/InternetOfThings/rootCA.pem', certfile='C:/Users/OEM/Desktop/Postgraduate/Internet of Things/InternetOfThings/client.pem', keyfile='C:/Users/OEM/Desktop/Postgraduate/Internet of Things/InternetOfThings/client.key', cert_reqs=ssl.CERT_NONE)
+client.on_connect = on_connect
+client.tls_set(ca_certs='/home/pi/Code/rootCA.pem', certfile='/home/pi/Code/client.pem', keyfile='/home/pi/Code/client.key')
 client.connect(host, 8883, 60)
 
 while True:
