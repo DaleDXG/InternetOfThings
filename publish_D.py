@@ -53,7 +53,7 @@ client.username_pw_set(username,passwd)
 client.on_connect = on_connect
 client.on_message = on_message
 # 3 key files are used to authentication
-client.tls_set(ca_certs="/home/pi/Code/rootCA.pem", certfile="/home/pi/Code/client.pem",keyfile="/home/pi/Code/client.key")#, cert_reqs=ssl.CERT_NONE)
+client.tls_set(ca_certs="/home/pi/Code/rootCA.pem", certfile="/home/pi/Code/client.pem",keyfile="/home/pi/Code/client.key",tls_version=2)
 client.connect(host,8883, 60)
 client.loop_start()
 sense = SenseHat()
@@ -75,9 +75,9 @@ while	True:
         mypublish('pressure', p)
 
 
-        topic='iot-2/evt/button/fmt/json' 
-        client.publish(topic, json.dumps({'button':button}))      
-        print('button: ' + str(button))     
+        topic='iot-2/evt/button/fmt/json'
+        client.publish(topic, json.dumps({'button':button}))
+        print('button: ' + str(button))
 
         compass_data = sense.get_compass_raw()
         m_x = compass_data['x']

@@ -11,7 +11,7 @@ password = 'O7-Feqo2w_ye0SzhNe'
 
 # Topic set
 topic_start = 'iot-2/type/Sensors/id/SenseHAT/evt/'
-topic_list = ['temperature', 'humidity', 'pressure', 'compass']
+topic_list = ['temperature', 'humidity', 'pressure', 'compass', 'message']
 # topic_mid = 'temperature'
 topic_end = '/fmt/json'
 
@@ -31,11 +31,11 @@ def on_connect(client, userdata, flags, rc):
         topic_mid = topic_list[i]
         topic = topic_start + topic_mid + topic_end        
         client.subscribe(topic)
-        print('topic: ' + str(topic))
+        #print('topic: ' + str(topic))
 
 
 def on_message(client, userdata, msg):
-    print(msg.payload)
+    #print(msg.payload)
     print(num_topic)
     topic_show = topic_list[num_topic]
     
@@ -52,19 +52,22 @@ def on_message(client, userdata, msg):
         sense.show_message('H: ' + str(humidity))
         
     # new add
-    elif topic_show = 'pressure':
+    elif topic_show == 'pressure':
         pressure = json.loads(msg.payload)["pressure"]
         print(topic_show + pressure)
         sense.show_message('P: ' + str(pressure))
-    elif topic_show = 'compass'：
+    elif topic_show == 'compass'：
         m_x = json.loads(msg.payload)["m_x"]
         m_y = json.loads(msg.payload)["m_y"]
         m_z = json.loads(msg.payload)["m_z"]
         north = json.loads(msg.payload)["north"]
         print('North: ' + str(north) + ' Compass_x: ' + str(m_x) + ' Compass_y: ' + str(m_y) + ' Compass_z: ' + str(m_z))
-        sense.show_message('North: ' + str(north) + ' x: ' + str(m_x) + ' y: ' + str(m_y) + ' z: ' + str(m_z))
-
-        
+        #sense.show_message('North: ' + str(north) + ' x: ' + str(m_x) + ' y: ' + str(m_y) + ' z: ' + str(m_z))
+        sense.show_message('North: ' + str(north))
+    elif topic_show == 'message':
+        message = json.loads(msg.payload)["msg"]
+        print(message)
+        sense.show_message(message)
 #     topic_value = json.loads(msg.payload)[topic_show]
 #     print(topic_show + ': ' + value)
 #     sense.show_message(str(value))

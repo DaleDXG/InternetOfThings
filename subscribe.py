@@ -134,6 +134,7 @@ while True:
     for event in sense.stick.get_events():
         action = event.action
 	print(action)
+	print(event.direction)
         if action == 'released':
             num_topic = (num_topic + 1) % len_topic
             sense.clear()

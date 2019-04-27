@@ -13,7 +13,7 @@ username = 'use-token-auth'
 topic_h = 'iot-2/evt/'
 button = 1
 topic_b = ['temperature','pressure','humidity','m_x', 'm_y', 'm_z', 'compass']
-topic_b_flag = [1, 1, 1, 0,0,0,1]
+topic_b_flag = [1, 1, 1, 1,1,1,1]
 topic_debug_flag = [1,1,1,1,1,1,1]
 topic_fmt = '/fmt/json'
 
@@ -32,23 +32,23 @@ def detec_button(threadName):
     while True:
         for event in sense.stick.get_events():
           direction=event.direction
-          action = event.action          
-          if action=='released':            # each released action will triger a status change
+          action = event.action
+          if action=='released':
              button=(button+1)%2
-             topic='iot-2/evt/button/fmt/json' 
-             client.publish(topic, json.dumps({'button':button}))  
+             topic='iot-2/evt/button/fmt/json'
+             client.publish(topic, json.dumps({'button':button}))
              print('button'+ str(button))
 
 def mypublish(topic_body, value):
-    topic= topic_h + topic_body + topic_fmt # combine 3 parts to 1 topic
+    topic= topic_h + topic_body + topic_fmt
     for i in range(len(topic_b)):
         if topic_b[i]==topic_body:
-            if topic_b_flag[i]==1:  
-                client.publish(topic, json.dumps({topic_body:value})) 
-                if topic_debug_flag[i]==1: 
+            if topic_b_flag[i]==1:
+                client.publish(topic, json.dumps({topic_body:value}))
+                if topic_debug_flag[i]==1:
                     print(topic +': '+ str(value))
 
-parser_input = argparse.ArgumentParser()  # the token is used to security check
+parser_input = argparse.ArgumentParser()
 parser_input.add_argument("-p", "--pass", action="store", required=True, dest='token',help="token from ibm cloud")
 args = parser_input.parse_args()
 passwd=args.token
@@ -56,8 +56,8 @@ client = mqtt.Client(clientid,clean_session=True)
 client.username_pw_set(username,passwd)
 client.on_connect = on_connect
 client.on_message = on_message
-# 3 key files are used to authentication
-client.tls_set(ca_certs="/home/pi/Downloads/rootCA.pem", certfile="/home/pi/Downloads/client.pem",keyfile="/home/pi/Downloads/client.key", cert_reqs=ssl.CERT_NONE)
+client.tls_set(ca_certs="/home/pi/Downloads/rootCA.pem", certfile="/home/pi/Downloads/client.pem",keyfile="/home/pi/Downloads/client.key",cert_reqs=ssl.CERT_NONE)
+#client.tls_set()
 client.connect(host,8883, 60)
 client.loop_start()
 sense = SenseHat()
@@ -79,9 +79,9 @@ while	True:
         mypublish('pressure', p)
 
 
-        topic='iot-2/evt/button/fmt/json' 
-        client.publish(topic, json.dumps({'button':button}))      
-        print('button: ' + str(button))     
+        topic='iot-2/evt/button/fmt/json'
+        client.publish(topic, json.dumps({'button':button}))
+        print('button: ' + str(button))
 
         compass_data = sense.get_compass_raw()
         m_x = compass_data['x']
