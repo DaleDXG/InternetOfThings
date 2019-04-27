@@ -20,17 +20,6 @@ topic_fmt = '/fmt/json'
 db = MySQLdb.connect("localhost", "iot", "password", "ass1")
 curs = db.cursor()
 
-global _temperature
-global _humidity
-global _pressure
-global _north
-global _m_x
-global _m_y
-global _m_z
-global _direction
-global _action
-global _text
-
 def save_data(tableName, data):
     try:
         sql_str = "INSERT INTO " + str(tableName) + " values(now(), "
@@ -59,6 +48,16 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
+    global _temperature
+    global _humidity
+    global _pressure
+    global _north
+    global _m_x
+    global _m_y
+    global _m_z
+    global _direction
+    global _action
+    global _text
     #print(msg.payload)
     #print(msg.topic.find('temperature'))
     if str(msg.topic).find('temperature') != -1:
