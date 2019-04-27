@@ -22,8 +22,8 @@ parser_input.add_argument("-t", "--text", action="store", required=True, dest='t
 args = parser_input.parse_args()
 text = args.text
 
-deviceType = 'Display'
-deviceId = 'LED'
+deviceType = 'Sensors'
+deviceId = 'SenseHAT'
 
 client.connect()
 myData={'msg' : text}
