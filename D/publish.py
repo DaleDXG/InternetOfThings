@@ -43,6 +43,8 @@ def publish(topic, data):
 
 client = mqtt.Client(clientid)
 client.username_pw_set(username, password)
+client.on_connect = on_connect
+client.on_message = on_message
 client.tls_set()
 #client.tls_set(ca_certs='rootCA.pem', certfile='client.pem', keyfile='client.key', cert_reqs=ssl.CERT_NONE)
 client.connect(host, 8883, 60)
