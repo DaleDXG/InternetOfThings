@@ -47,8 +47,8 @@ def save_data(tableName, data):
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
-    topic_ls = []
-    """ for i in range(len(topic_list)):
+    """ topic_ls = []
+    for i in range(len(topic_list)):
         topic = topic_h + topic_list[i] + topic_fmt
         topic_ls.append((topic, i))
         print('topic: ' + str(topic))
@@ -60,7 +60,7 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
-    #print(msg.payload)
+    print(msg.payload)
     if msg.topic == 'temperature':
         temperature = json.loads(msg.payload)["temperature"]
         print("temperature: " + temperature)
@@ -119,8 +119,8 @@ def on_message(client, userdata, msg):
 
 client = mqtt.Client(clientid)
 client.username_pw_set(username, password)
-client.tls_set()
-client.connect(host, 8883, 60)
 client.on_connect = on_connect
 client.on_message = on_message
+client.tls_set()
+client.connect(host, 8883, 60)
 client.loop_forever()
