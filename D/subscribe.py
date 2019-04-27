@@ -64,7 +64,7 @@ def on_message(client, userdata, msg):
     #print(msg.topic.find('temperature'))
     if str(msg.topic).find('temperature') != -1:
         temperature = json.loads(msg.payload)["temperature"]
-        print("temperature: " + temperature)
+        print(str(temperature))
         _temperature = temperature
         save_data("temperature", [temperature])
     elif msg.topic.find('humidity') != -1:
