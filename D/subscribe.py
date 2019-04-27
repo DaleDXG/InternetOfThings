@@ -34,12 +34,11 @@ global _text
 
 def save_data(tableName, data):
     try:
-        sql_str = "INSERT INTO " + tableName + "values(now(), "
+        sql_str = "INSERT INTO " + str(tableName) + " values(now(), "
         for d in data:
-            sql_str = sql_str + d + ', '
-        sql_str = sql_str[:-1]
-        sql_str = sql_str + ')'
-        print(sql_str)
+            sql_str = sql_str + str(d) + ', '
+        sql_str = sql_str[:-2] + ')'
+        #print(sql_str)
         curs.execute(sql_str)
         db.commit()
     except:
@@ -78,7 +77,7 @@ def on_message(client, userdata, msg):
         print("pressure: " + str(pressure))
         _pressure = pressure
         save_data("pressure", [pressure])
-    elif msg.topic == 'compass':
+    elif msg.topic.find('compass') != -1:
         m_x = json.loads(msg.payload)["m_x"]
         print("m_x: " + str(m_x))
         _m_x = m_x
