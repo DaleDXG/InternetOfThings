@@ -88,7 +88,7 @@ client.on_message = on_message
 client.tls_set()
 #client.tls_set(ca_certs='rootCA.pem', certfile='client.pem', keyfile='client.key', cert_reqs=ssl.CERT_NONE)
 client.connect(host, 8883, 60)
-client.subscribe('iot-2/cmd/text/fmt/json')
+client.subscribe('iot-2/cmd/text/fmt/json', 2)
 
 try:
    thread_joystick = threading.Thread(target = publishJoystick, name = 'thread_joystick')
@@ -98,5 +98,4 @@ try:
 except:
    print("Error: unable to start thread")
 
-client.loop()
-client.disconnect()
+client.loop_forever()

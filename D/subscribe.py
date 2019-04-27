@@ -21,17 +21,6 @@ sense = SenseHat()
 db = MySQLdb.connect("localhost", "iot", "password", "ass1")
 curs = db.cursor()
 
-global _temperature
-global _humidity
-global _pressure
-global _north
-global _m_x
-global _m_y
-global _m_z
-global _direction
-global _action
-global _text
-
 def save_data(tableName, data):
     try:
         sql_str = "INSERT INTO " + tableName + "values(now(), "
