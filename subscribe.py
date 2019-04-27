@@ -19,6 +19,8 @@ topic_end = '/fmt/json'
 num_topic = 0
 len_topic = len(topic_list)
 
+hello_topic = 'iot-2/evt/hello/fmt/json'
+
 sense = SenseHat()
 
 
@@ -27,6 +29,7 @@ curs = db.cursor()
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
+#    client.subscribe(hello_topic)
     for i in range(len(topic_list)):
         topic_mid = topic_list[i]
         topic = topic_start + topic_mid + topic_end        
@@ -35,7 +38,7 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
-    print(msg.payload)
+#    print(msg.payload)
     print(num_topic)
     topic_show = topic_list[num_topic]
     
@@ -130,6 +133,7 @@ client.loop_start()
 while True:  
     for event in sense.stick.get_events():
         action = event.action
+	print(action)
         if action == 'released':
             num_topic = (num_topic + 1) % len_topic
             sense.clear()

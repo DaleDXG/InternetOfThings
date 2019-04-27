@@ -24,6 +24,7 @@ client.on_connect = on_connect
 client.on_message = on_message
 # 3 key files are used to authentication
 client.tls_set(ca_certs="rootCA.pem", certfile="client.pem",keyfile="client.key")
+
 client.connect(host,8883, 60)
 client.loop_start()
 
