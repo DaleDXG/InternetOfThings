@@ -1,0 +1,72 @@
+2019-04-18 00:41:13,329   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 01:01:01,795   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 02:59:35,036   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 02:59:36,798   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 02:59:38,582   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 02:59:40,331   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 02:59:42,114   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 02:59:43,907   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 02:59:45,720   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 02:59:47,479   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 02:59:49,275   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 02:59:51,033   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 02:59:52,824   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 02:59:54,576   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 02:59:56,401   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 02:59:58,176   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 02:59:59,982   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:00:01,740   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:00:04,524   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:00:06,320   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:00:08,115   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:00:09,886   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:00:11,671   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:04:27,578   ibmiotf.application.Client  CRITICAL Failed to connect to IBM Watson IoT Platform: s0wlob.messaging.internetofthings.ibmcloud.com - [Errno -3] Temporary failure in name resolution
+2019-04-18 03:07:49,064   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:09:49,421   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:09:49,423   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:10:53,292   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:12:53,640   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:12:53,642   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:15:01,471   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:18:02,106   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:18:02,108   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:18:10,645   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:21:11,271   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:21:11,273   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:22:15,088   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:25:15,713   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:25:15,714   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:27:23,543   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:27:25,369   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:27:27,155   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:27:28,917   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:27:30,713   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:27:33,476   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:27:35,258   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:27:37,036   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:27:38,828   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:27:40,582   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:27:43,378   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:27:45,139   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:27:58,078   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:28:00,850   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:28:03,638   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:28:06,408   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:28:09,219   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:28:12,060   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:29:17,860   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:29:27,098   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:29:35,005   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:29:37,873   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:29:40,668   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:29:43,425   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:29:46,206   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:29:48,956   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:29:51,752   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:29:54,523   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:29:56,312   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:29:58,085   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:30:09,889   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED
+2019-04-18 03:30:13,674   ibmiotf.application.Client  ERROR   Unexpected disconnect from the IBM Watson IoT Platform: 1
+2019-04-18 03:30:15,469   ibmiotf.application.Client  INFO    Connected successfully: a:s0wlob:showTemperatureOnLED

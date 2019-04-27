@@ -54,24 +54,25 @@ def on_connect(client, userdata, flags, rc):
         print('topic: ' + str(topic))
     client.subscribe(topic_ls) """
     for i in range(len(topic_list)):
-        topic = topic_h + topic_list[i] + topic_fmt     
+        topic = topic_h + topic_list[i] + topic_fmt
         client.subscribe(topic)
         print('topic: ' + str(topic))
 
 
 def on_message(client, userdata, msg):
-    print(msg.payload)
-    if msg.topic == 'temperature':
+    #print(msg.payload)
+    #print(msg.topic.find('temperature'))
+    if str(msg.topic).find('temperature') != -1:
         temperature = json.loads(msg.payload)["temperature"]
         print("temperature: " + temperature)
         _temperature = temperature
         save_data("temperature", [temperature])
-    elif msg.topic == 'humidity':
+    elif msg.topic.find('humidity') != -1:
         humidity = json.loads(msg.payload)["humidity"]
         print("humidity: " + humidity)
         _humidity = humidity
         save_data("humidity", [humidity])
-    elif msg.topic == 'pressure':
+    elif msg.topic.find('pressure') != -1:
         pressure = json.loads(msg.payload)["pressure"]
         print("pressure: " + pressure)
         _pressure = pressure
@@ -94,7 +95,7 @@ def on_message(client, userdata, msg):
         text = json.loads(msg.payload)["msg"]
         print("text: " + text)
         _text = text
-    elif msg.topic == 'joystick':
+    elif msg.topic.find('joystick') != -1:
         direction = json.loads(msg.payload)["direction"]
         print("direction: " + direction)
         _direction = direction

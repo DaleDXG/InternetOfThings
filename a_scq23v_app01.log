@@ -1,0 +1,5 @@
+2019-04-18 04:59:11,069   ibmiotf.application.Client  CRITICAL Failed to connect to IBM Watson IoT Platform: scq23v.messaging.internetofthings.ibmcloud.com - ('_ssl.c:645: The handshake operation timed out',)
+2019-04-18 05:00:17,343   ibmiotf.application.Client  CRITICAL Failed to connect to IBM Watson IoT Platform: scq23v.messaging.internetofthings.ibmcloud.com - [Errno -3] Temporary failure in name resolution
+2019-04-18 05:00:28,974   ibmiotf.application.Client  CRITICAL Failed to connect to IBM Watson IoT Platform: scq23v.messaging.internetofthings.ibmcloud.com - [Errno -3] Temporary failure in name resolution
+2019-04-18 05:00:37,565   ibmiotf.application.Client  CRITICAL Failed to connect to IBM Watson IoT Platform: scq23v.messaging.internetofthings.ibmcloud.com - [Errno -3] Temporary failure in name resolution
+2019-04-18 05:02:55,500   ibmiotf.application.Client  INFO    Connected successfully: a:scq23v:app01
