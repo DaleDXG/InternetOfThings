@@ -39,6 +39,7 @@ def save_data(tableName, data):
             sql_str = sql_str + d + ', '
         sql_str = sql_str[:-1]
         sql_str = sql_str + ')'
+        print(sql_str)
         curs.execute(sql_str)
         db.commit()
     except:
@@ -64,43 +65,43 @@ def on_message(client, userdata, msg):
     #print(msg.topic.find('temperature'))
     if str(msg.topic).find('temperature') != -1:
         temperature = json.loads(msg.payload)["temperature"]
-        print(str(temperature))
+        print("temperature: " + str(temperature))
         _temperature = temperature
         save_data("temperature", [temperature])
     elif msg.topic.find('humidity') != -1:
         humidity = json.loads(msg.payload)["humidity"]
-        print("humidity: " + humidity)
+        print("humidity: " + str(humidity))
         _humidity = humidity
         save_data("humidity", [humidity])
     elif msg.topic.find('pressure') != -1:
         pressure = json.loads(msg.payload)["pressure"]
-        print("pressure: " + pressure)
+        print("pressure: " + str(pressure))
         _pressure = pressure
         save_data("pressure", [pressure])
     elif msg.topic == 'compass':
         m_x = json.loads(msg.payload)["m_x"]
-        print("m_x: " + m_x)
+        print("m_x: " + str(m_x))
         _m_x = m_x
         m_y = json.loads(msg.payload)["m_y"]
-        print("m_y: " + m_y)
+        print("m_y: " + str(m_y))
         _m_y = m_y
         m_z = json.loads(msg.payload)["m_z"]
-        print("m_z: " + m_z)
+        print("m_z: " + str(m_z))
         _m_z = m_z
         north = json.loads(msg.payload)["north"]
-        print("north: " + north)
+        print("north: " + str(north))
         _north = north
         save_data("compass", [m_x, m_y, m_z])
-    elif msg.topic == 'text':
+    elif msg.topic.find('text') != -1:
         text = json.loads(msg.payload)["msg"]
-        print("text: " + text)
+        print("text: " + str(text))
         _text = text
     elif msg.topic.find('joystick') != -1:
         direction = json.loads(msg.payload)["direction"]
-        print("direction: " + direction)
+        print("direction: " + str(direction))
         _direction = direction
         action = json.loads(msg.payload)["action"]
-        print("action: " + action)
+        print("action: " + str(action))
         _action = action
         if action == 'released':
             if direction == 'left':
