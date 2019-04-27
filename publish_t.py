@@ -27,4 +27,5 @@ deviceId = 'LED'
 
 client.connect()
 myData={'msg' : text}
-client.publishEvent(deviceType, deviceId, "text", "json", myData)
+#while True:
+client.publishCommand(deviceType, deviceId, "text", "json", myData)

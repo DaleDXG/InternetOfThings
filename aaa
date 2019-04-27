@@ -1,0 +1,17 @@
+
+options = {
+    "org": "s0wlob",
+    "id": "text",
+    "auth-method": "apikey",
+    "auth-key": "a-s0wlob-4mmbxx2owp",
+    "auth-token": "xs1Wd-I)z_wfjdZWtQ",
+    "clean-session": True
+    }
+
+targetDeviceType = "Display"
+targetDeviceId = "LED"
+
+clientApp = ibmiotf.application.Client(options)
+clientApp.connect()
+
+    clientApp.publishCommand(targetDeviceType, targetDeviceId, "state", "json", {'msg': text})

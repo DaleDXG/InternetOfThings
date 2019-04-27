@@ -21,6 +21,8 @@ def on_connect(client, userdata, flags, rc):
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     print("on_message")
+    text = json.loads(msg.payload)["msg"]
+    print(text)
     #print(msg.topic+" "+str(msg.payload))
 
 # thread for joy stick
@@ -44,6 +46,7 @@ client.username_pw_set(username, password)
 client.tls_set()
 #client.tls_set(ca_certs='rootCA.pem', certfile='client.pem', keyfile='client.key', cert_reqs=ssl.CERT_NONE)
 client.connect(host, 8883, 60)
+client.subscribe('iot-2/cmd/text/fmt/json')
 
 sense = SenseHat()
 

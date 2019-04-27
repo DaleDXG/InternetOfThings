@@ -59,44 +59,44 @@ def on_message(client, userdata, msg):
     #print(msg.payload)
     if msg.topic == 'temperature':
         temperature = json.loads(msg.payload)["temperature"]
-        _temperature = temperature
-        save_data("temperature", [temperature])
         print("temperature: " + temperature)
+        global _temperature = temperature
+        save_data("temperature", [temperature])
     elif msg.topic == 'humidity':
         humidity = json.loads(msg.payload)["humidity"]
-        _humidity = humidity
-        save_data("humidity", [humidity])
         print("humidity: " + humidity)
+        global _humidity = humidity
+        save_data("humidity", [humidity])
     elif msg.topic == 'pressure':
         pressure = json.loads(msg.payload)["pressure"]
-        _pressure = pressure
-        save_data("pressure", [pressure])
         print("pressure: " + pressure)
+        global _pressure = pressure
+        save_data("pressure", [pressure])
     elif msg.topic == 'compass':
         m_x = json.loads(msg.payload)["m_x"]
-        _m_x = m_x
-        m_y = json.loads(msg.payload)["m_y"]
-        _m_y = m_y
-        m_z = json.loads(msg.payload)["m_z"]
-        _m_z = m_z
-        north = json.loads(msg.payload)["north"]
-        _north = north
-        save_data("compass", [m_x, m_y, m_z])
         print("m_x: " + m_x)
+        global _m_x = m_x
+        m_y = json.loads(msg.payload)["m_y"]
         print("m_y: " + m_y)
+        global _m_y = m_y
+        m_z = json.loads(msg.payload)["m_z"]
         print("m_z: " + m_z)
+        global _m_z = m_z
+        north = json.loads(msg.payload)["north"]
         print("north: " + north)
+        global _north = north
+        save_data("compass", [m_x, m_y, m_z])
     elif msg.topic == 'text':
         text = json.loads(msg.payload)["msg"]
-        _text = text
         print("text: " + text)
+        global _text = text
     elif msg.topic == 'joystick':
         direction = json.loads(msg.payload)["direction"]
-        _direction = direction
-        action = json.loads(msg.payload)["action"]
-        _action = action
         print("direction: " + direction)
+        global _direction = direction
+        action = json.loads(msg.payload)["action"]
         print("action: " + action)
+        global _action = action
         if action == 'released':
             if direction == 'left':
                 sense.clear()

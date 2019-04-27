@@ -24,12 +24,9 @@ def ButtonCallback(event):
     commandData = {'state': button}
     client.publishCommand(targetDeviceType, targetDeviceId, "state", "json", commandData)
 
-
 client = ibmiotf.application.Client(options)
 
 client.connect()
 #client.deviceEventCallback = ButtonCallback()
-
-
 
 client.subscribeToDeviceEvents(deviceType=sourceDeviceType, deviceId=sourceDeviceId, event=sourceEvent)
