@@ -37,11 +37,15 @@ def save_data(tableName, data):
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
     topic_ls = []
-    for i in range(len(topic_list)):
+    """ for i in range(len(topic_list)):
         topic = topic_h + topic_list[i] + topic_fmt
         topic_ls.append((topic, i))
         print('topic: ' + str(topic))
-    client.subscribe(topic_ls)
+    client.subscribe(topic_ls) """
+    for i in range(len(topic_list)):
+        topic = topic_h + topic_list[i] + topic_fmt     
+        client.subscribe(topic)
+        print('topic: ' + str(topic))
 
 
 def on_message(client, userdata, msg):
