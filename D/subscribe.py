@@ -17,7 +17,6 @@ topic_h = 'iot-2/type/Sensors/id/SenseHAT/evt/'
 topic_list = ['temperature', 'humidity', 'pressure', 'compass', 'joystick', 'text']
 topic_fmt = '/fmt/json'
 
-global sense = SenseHat()
 db = MySQLdb.connect("localhost", "iot", "password", "ass1")
 curs = db.cursor()
 
@@ -102,6 +101,7 @@ def on_message(client, userdata, msg):
         action = json.loads(msg.payload)["action"]
         print("action: " + str(action))
         _action = action
+        sense = SenseHat()
         if action == 'released':
             if direction == 'left':
                 sense.clear()
