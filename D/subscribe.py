@@ -17,7 +17,7 @@ topic_h = 'iot-2/type/Sensors/id/SenseHAT/evt/'
 topic_list = ['temperature', 'humidity', 'pressure', 'compass', 'joystick', 'text']
 topic_fmt = '/fmt/json'
 
-sense = SenseHat()
+global sense = SenseHat()
 db = MySQLdb.connect("localhost", "iot", "password", "ass1")
 curs = db.cursor()
 
