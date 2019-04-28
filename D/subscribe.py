@@ -133,7 +133,8 @@ def showMessage():
         elif _direction == 'down':
             sense.show_message('Text: ' + str(_text), text_colour = [255, 0, 255])
         elif _direction == 'middle':
-            sense.clear()
+            #sense.clear()
+            sense.show_message('m_x: ' + str(_m_x) + 'm_y: ' + str(_m_y) + 'm_z: ' + str(_m_z), text_colour = [0, 255, 255])
         time.sleep(1)
 
 try:
