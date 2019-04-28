@@ -134,6 +134,7 @@ def showMessage():
             sense.show_message('Text: ' + str(_text))
         elif _direction == 'middle':
             sense.clear()
+        time.sleep(0.5)
 
 try:
    thread_showMessage = threading.Thread(target = showMessage, name = 'thread_showMessage')
