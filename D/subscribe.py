@@ -75,7 +75,6 @@ def on_message(client, userdata, msg):
         temperature = json.loads(msg.payload)["temperature"]
         print("temperature: " + str(temperature))
         _temperature = temperature
-        print('!!!!!' + str(_temperature))
         save_data("temperature", [temperature])
     elif msg.topic.find('humidity') != -1:
         humidity = json.loads(msg.payload)["humidity"]
@@ -105,6 +104,7 @@ def on_message(client, userdata, msg):
         text = json.loads(msg.payload)["msg"]
         print("text: " + str(text))
         _text = text
+        save_data("message", [text])
     elif msg.topic.find('joystick') != -1:
         direction = json.loads(msg.payload)["direction"]
         print("direction: " + str(direction))
@@ -124,15 +124,14 @@ def showMessage():
     sense = SenseHat()
     sense.clear()
     while True:
-        print('#####' + str(_direction))
         if _direction == 'left':
-            sense.show_message('T: ' + str(_temperature))
+            sense.show_message('T: ' + str(_temperature), text_colour = [255, 0, 0])
         elif _direction == 'right':
-            sense.show_message('H: ' + str(_humidity))
+            sense.show_message('H: ' + str(_humidity), text_colour = [0, 255, 0])
         elif _direction == 'up':
-            sense.show_message('P: ' + str(_pressure))
+            sense.show_message('P: ' + str(_pressure), text_colour = [0, 0, 255])
         elif _direction == 'down':
-            sense.show_message('Text: ' + str(_text))
+            sense.show_message('Text: ' + str(_text), text_colour = [255, 0, 255])
         elif _direction == 'middle':
             sense.clear()
         time.sleep(1)
