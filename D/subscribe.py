@@ -45,7 +45,7 @@ def on_connect(client, userdata, flags, rc):
         topic = topic_h + topic_list[i] + topic_fmt
         client.subscribe(topic)
         print('topic: ' + str(topic))
-    #client.subscribe('iot-2/cmd/text/fmt/json')
+    client.subscribe('iot-2/type/Sensors/id/SenseHAT/cmd/text/fmt/json')
 
 
 def on_message(client, userdata, msg):
@@ -60,7 +60,6 @@ def on_message(client, userdata, msg):
     global _action
     global _text
     #print(msg.payload)
-    #print(msg.topic.find('temperature'))
     if str(msg.topic).find('temperature') != -1:
         temperature = json.loads(msg.payload)["temperature"]
         print("temperature: " + str(temperature))
