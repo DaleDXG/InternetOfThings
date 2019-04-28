@@ -45,6 +45,7 @@ def on_connect(client, userdata, flags, rc):
         topic = topic_h + topic_list[i] + topic_fmt
         client.subscribe(topic)
         print('topic: ' + str(topic))
+    client.subscribe('iot-2/cmd/text/fmt/json')
 
 
 def on_message(client, userdata, msg):
@@ -123,4 +124,17 @@ client.on_connect = on_connect
 client.on_message = on_message
 client.tls_set()
 client.connect(host, 8883, 60)
+
+def showOnScreen():
+    sense = SenseHat()
+    sense.clear()
+    while True:
+        sense.show_message('Text: ' + str(_text))
+
+try:
+   thread_screen = threading.Thread(target = showOnScreen, name = 'thread_screen')
+   thread_screen.start()
+except:
+   print("Error: unable to start thread")
+
 client.loop_forever()
