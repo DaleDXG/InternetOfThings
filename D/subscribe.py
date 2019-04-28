@@ -109,6 +109,16 @@ client.tls_set()
 client.connect(host, 8883, 60)
 
 def showMessage():
+    global _temperature
+    global _humidity
+    global _pressure
+    global _north
+    global _m_x
+    global _m_y
+    global _m_z
+    global _direction
+    global _action
+    global _text
     sense = SenseHat()
     sense.clear()
     while True:
