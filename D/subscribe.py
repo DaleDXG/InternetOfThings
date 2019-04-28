@@ -60,11 +60,22 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
+    global _temperature
+    global _humidity
+    global _pressure
+    global _north
+    global _m_x
+    global _m_y
+    global _m_z
+    global _direction
+    global _action
+    global _text
     #print(msg.payload)
     if str(msg.topic).find('temperature') != -1:
         temperature = json.loads(msg.payload)["temperature"]
         print("temperature: " + str(temperature))
         _temperature = temperature
+        print('!!!!!' + str(_temperature))
         save_data("temperature", [temperature])
     elif msg.topic.find('humidity') != -1:
         humidity = json.loads(msg.payload)["humidity"]
@@ -110,20 +121,10 @@ client.tls_set()
 client.connect(host, 8883, 60)
 
 def showMessage():
-    global _temperature
-    global _humidity
-    global _pressure
-    global _north
-    global _m_x
-    global _m_y
-    global _m_z
-    global _direction
-    global _action
-    global _text
-
     sense = SenseHat()
     sense.clear()
     while True:
+        print('#####' + str(_direction))
         if _direction == 'left':
             sense.show_message('T: ' + str(_temperature))
         elif _direction == 'right':
@@ -134,7 +135,7 @@ def showMessage():
             sense.show_message('Text: ' + str(_text))
         elif _direction == 'middle':
             sense.clear()
-        time.sleep(0.5)
+        time.sleep(1)
 
 try:
    thread_showMessage = threading.Thread(target = showMessage, name = 'thread_showMessage')
