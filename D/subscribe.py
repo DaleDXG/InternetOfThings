@@ -101,22 +101,6 @@ def on_message(client, userdata, msg):
         action = json.loads(msg.payload)["action"]
         print("action: " + str(action))
         _action = action
-        sense = SenseHat()
-        if action == 'released':
-            if direction == 'left':
-                sense.clear()
-                sense.show_message('T: ' + str(_temperature))
-            elif direction == 'right':
-                sense.clear()
-                sense.show_message('H: ' + str(_humidity))
-            elif direction == 'up':
-                sense.clear()
-                sense.show_message('P: ' + str(_pressure))
-            elif direction == 'down':
-                sense.clear()
-                sense.show_message('Text: ' + str(_text))
-            elif direction == 'middle':
-                sense.clear()
 
 client = mqtt.Client(clientid)
 client.username_pw_set(username, password)
@@ -124,4 +108,26 @@ client.on_connect = on_connect
 client.on_message = on_message
 client.tls_set()
 client.connect(host, 8883, 60)
+
+def showMessage():
+    sense = SenseHat()
+    sense.clear()
+    while True:
+        if _direction == 'left':
+            sense.show_message('T: ' + str(_temperature))
+        elif _direction == 'right':
+            sense.show_message('H: ' + str(_humidity))
+        elif _direction == 'up':
+            sense.show_message('P: ' + str(_pressure))
+        elif _direction == 'down':
+            sense.show_message('Text: ' + str(_text))
+        elif _direction == 'middle':
+            sense.clear()
+
+try:
+   thread_showMessage = threading.Thread(target = showMessage, name = 'thread_showMessage')
+   thread_showMessage.start()
+except:
+   print("Error: unable to start thread")
+
 client.loop_forever()
