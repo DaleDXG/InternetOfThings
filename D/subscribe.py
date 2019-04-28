@@ -65,6 +65,7 @@ def on_message(client, userdata, msg):
         temperature = json.loads(msg.payload)["temperature"]
         print("temperature: " + str(temperature))
         _temperature = temperature
+        print('!!!!!' + str(_temperature))
         save_data("temperature", [temperature])
     elif msg.topic.find('humidity') != -1:
         humidity = json.loads(msg.payload)["humidity"]
@@ -124,6 +125,7 @@ def showMessage():
     sense = SenseHat()
     sense.clear()
     while True:
+        print('#####' + str(_direction))
         if _direction == 'left':
             sense.show_message('T: ' + str(_temperature))
         elif _direction == 'right':
@@ -134,6 +136,7 @@ def showMessage():
             sense.show_message('Text: ' + str(_text))
         elif _direction == 'middle':
             sense.clear()
+        time.sleep(1)
 
 try:
    thread_showMessage = threading.Thread(target = showMessage, name = 'thread_showMessage')
