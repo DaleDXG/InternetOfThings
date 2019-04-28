@@ -45,7 +45,7 @@ def on_connect(client, userdata, flags, rc):
         topic = topic_h + topic_list[i] + topic_fmt
         client.subscribe(topic)
         print('topic: ' + str(topic))
-    client.subscribe('iot-2/cmd/text/fmt/json')
+    #client.subscribe('iot-2/cmd/text/fmt/json')
 
 
 def on_message(client, userdata, msg):
@@ -124,5 +124,4 @@ client.on_connect = on_connect
 client.on_message = on_message
 client.tls_set()
 client.connect(host, 8883, 60)
-
 client.loop_forever()
