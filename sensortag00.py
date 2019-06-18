@@ -422,8 +422,15 @@ import json
 devices_mac = ["98:07:2d:2f:e1:05", "54:6c:0e:80:67:87"]
 
 def printInfoFromSensorTag(name, Peripheral):
-    print('Connecting to ' + arg.host)
+    print('Connecting to ' + Peripheral)
     tag = SensorTag(Peripheral)
+    tag.IRtemperature.enable()
+    tag.humidity.enable()
+    tag.barometer.enable()
+    if tag.lightmeter is None:
+        print("Warning: no lightmeter on this device")
+    else:
+        tag.lightmeter.enable()
     counter = 1
     while True:
         newInfo = {"tag": name, "temperature": tag.IRtemperature.read(), "humidity": tag.humidity.read(), "barometer": tag.barometer.read(), "light": tag.lightmeter.read()}
